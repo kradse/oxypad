@@ -1,14 +1,17 @@
 use gtk4 as gtk;
 use gtk::prelude::*;
 use gtk::{
-    Application, 
+    Application,
     ApplicationWindow,
 };
+use std::rc::Rc;
+use std::cell::RefCell;
+use crate::state::AppState;
 
 pub mod header;
 pub mod layout;
 
-pub fn build_ui(app: &Application) {
+pub fn build_ui(app: &Application, _state: Rc<RefCell<AppState>>) {
 
     let header = header::build_header();
     let layout = layout::build_layout();

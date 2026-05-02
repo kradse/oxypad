@@ -6,7 +6,7 @@ use gtk::{
 
 pub fn build_header() -> HeaderBar {
     let title_widget = Label::builder()
-        .label("Untitled.txt")
+        .label("OxyPad")
         .build();
 
     let header = HeaderBar::builder()

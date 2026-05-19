@@ -11,6 +11,8 @@ pub fn build_layout() -> Box {
         .child(&text_view)
         .vexpand(true)
         .hexpand(true)
+        .min_content_width(1)
+        .min_content_height(1)
         .build();
 
     let layout = Box::builder()

@@ -10,8 +10,9 @@ use crate::state::AppState;
 
 pub mod header;
 pub mod layout;
+pub mod actions;
 
-pub fn build_ui(app: &Application, _state: Rc<RefCell<AppState>>) {
+pub fn build_ui(app: &Application, state: Rc<RefCell<AppState>>) {
 
     let header = header::build_header();
     let layout = layout::build_layout();
@@ -22,6 +23,9 @@ pub fn build_ui(app: &Application, _state: Rc<RefCell<AppState>>) {
         .default_height(720)
         .application(app)
         .build();
+
+    actions::register_win_actions(&window);
+    actions::register_app_actions(app, &state);
 
     window.set_titlebar(Some(&header));
     window.set_child(Some(&layout));
